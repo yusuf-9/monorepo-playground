@@ -1,6 +1,9 @@
 {
   "name": "monorepo-playground",
   "private": true,
-  "scripts": {}
+  "scripts": {
+    "dev": "pnpm --filter app dev",
+    "start": "pnpm --filter app start"
+  }
 }
 

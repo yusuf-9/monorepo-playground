@@ -1,5 +1,9 @@
-This repo is just me experimenting with monorepos.
+# Monorepo Playground
 
-Different branches have different monorepo setups.
+JavaScript monorepo using pnpm workspaces.
 
-If you're just as confused about monorepos as I am, going through the branches might help you understand them.
+## Structure
+- `apps/app` - Main application
+- `packages/utils` - Shared utilities (@repo/utils)
+
+Run `pnpm install` from root to install dependencies.
