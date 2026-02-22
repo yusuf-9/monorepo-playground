@@ -4,9 +4,17 @@
   "private": true,
   "type": "module",
   "exports": {
-    ".": "./src/index.js"
+    ".": "./dist/index.js"
+  },
+  "scripts": {
+    "dev": "tsc --watch",
+    "build": "tsc"
   },
   "dependencies": {
     "uuid": "^13.0.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.0.0",
+    "@types/uuid": "^10.0.0"
   }
 }

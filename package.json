@@ -3,7 +3,8 @@
   "private": true,
   "scripts": {
     "dev": "pnpm --filter app dev",
-    "start": "pnpm --filter app start"
+    "start": "pnpm -r build && pnpm --filter app start",
+    "build": "pnpm -r build"
   }
 }
 

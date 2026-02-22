@@ -4,7 +4,7 @@ JavaScript monorepo using pnpm workspaces.
 
 ## Structure
 - `apps/app` - Main application
-- `packages/utils` - Shared utilities (@repo/utils)
+- `packages/utils` - Shared TypeScript utilities (@repo/utils)
 
 ## Scripts
 - `pnpm dev` - Start app in development mode
