@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { isOdd } from '@repo/utils';
+import { Button } from '@repo/ui';
 import reactLogo from './assets/react.svg';
 import viteLogo from '/vite.svg';
 import './App.css';
@@ -44,7 +45,9 @@ function App() {
               border: '1px solid #646cff',
             }}
           />
-          <button onClick={handleCheck}>Check</button>
+          <Button onClick={handleCheck} variant="danger">
+            Check
+          </Button>
         </div>
         {result && (
           <p style={{ marginTop: '20px', fontSize: '18px', fontWeight: 'bold' }}>{result}</p>
