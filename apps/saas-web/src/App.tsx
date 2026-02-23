@@ -1,10 +1,22 @@
 import { useState } from 'react';
+import { isOdd } from '@repo/utils';
 import reactLogo from './assets/react.svg';
 import viteLogo from '/vite.svg';
 import './App.css';
 
 function App() {
-  const [count, setCount] = useState(0);
+  const [inputValue, setInputValue] = useState('');
+  const [result, setResult] = useState<string | null>(null);
+
+  const handleCheck = () => {
+    const num = parseInt(inputValue, 10);
+    if (isNaN(num)) {
+      setResult('Please enter a valid number');
+      return;
+    }
+    const odd = isOdd(num);
+    setResult(odd ? `${num} is odd!` : `${num} is even!`);
+  };
 
   return (
     <>
@@ -18,8 +30,26 @@ function App() {
       </div>
       <h1>Vite + React</h1>
       <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>count is {count}</button>
-        <p>
+        <h2>Is It Odd?</h2>
+        <div style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
+          <input
+            type="number"
+            value={inputValue}
+            onChange={(e) => setInputValue(e.target.value)}
+            placeholder="Enter a number"
+            style={{
+              padding: '8px 12px',
+              fontSize: '16px',
+              borderRadius: '4px',
+              border: '1px solid #646cff',
+            }}
+          />
+          <button onClick={handleCheck}>Check</button>
+        </div>
+        {result && (
+          <p style={{ marginTop: '20px', fontSize: '18px', fontWeight: 'bold' }}>{result}</p>
+        )}
+        <p style={{ marginTop: '30px' }}>
           Edit <code>src/App.tsx</code> and save to test HMR
         </p>
       </div>

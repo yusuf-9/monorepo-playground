@@ -12,6 +12,7 @@
     "format:check": "prettier --check \"src/**/*.{ts,tsx,js,jsx,json,css,md}\""
   },
   "dependencies": {
+    "@repo/utils": "workspace:*",
     "react": "^19.2.0",
     "react-dom": "^19.2.0"
   },
