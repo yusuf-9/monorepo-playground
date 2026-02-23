@@ -8,7 +8,8 @@
     "build": "tsc"
   },
   "dependencies": {
-    "@repo/utils": "workspace:*"
+    "@repo/utils": "workspace:*",
+    "@repo/services": "workspace:*"
   },
   "devDependencies": {
     "tsx": "^4.21.0",

@@ -2,7 +2,7 @@
   "name": "monorepo-playground",
   "private": true,
   "scripts": {
-    "dev": "pnpm --filter app dev",
+    "dev": "pnpm build && concurrently -n services,app -c magenta,green \"pnpm --filter @repo/services dev\" \"pnpm --filter app dev\"",
     "start": "pnpm -r build && pnpm --filter app start",
     "build": "pnpm -r build"
   },

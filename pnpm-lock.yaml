@@ -14,6 +14,9 @@ importers:
 
   apps/app:
     dependencies:
+      '@repo/services':
+        specifier: workspace:*
+        version: link:../../packages/services
       '@repo/utils':
         specifier: workspace:*
         version: link:../../packages/utils
@@ -23,6 +26,12 @@ importers:
         version: 4.21.0
       typescript:
         specifier: ^5.9.3
+        version: 5.9.3
+
+  packages/services:
+    devDependencies:
+      typescript:
+        specifier: ^5.0.0
         version: 5.9.3
 
   packages/utils:

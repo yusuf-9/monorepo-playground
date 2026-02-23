@@ -1,5 +1,8 @@
 import { generateId } from "@repo/utils";
+import { createLogger } from "@repo/services";
 
-const string: string = generateId()
+const logger = createLogger("MyApp");
+const id: string = generateId();
 
-console.log(string)
+logger.info("Application started");
+logger.log(`Generated ID: ${id}`);
