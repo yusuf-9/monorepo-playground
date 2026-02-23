@@ -1,21 +1,21 @@
 # Monorepo Playground
 
-JavaScript/TypeScript monorepo using pnpm workspaces.
+TypeScript monorepo using pnpm workspaces.
 
 ## Structure
-- `apps/app` - Main application (JavaScript)
-- `packages/utils` - Shared TypeScript utilities (@repo/utils)
+- `apps/app` - Main application (TypeScript)
+- `packages/utils` - Shared utilities package (@repo/utils) (TypeScript)
 
-## TypeScript Package Setup
-The utils package is self-compiling - it builds TypeScript (`src/`) to JavaScript (`dist/`) using its own tsc scripts. The main app simply consumes the pre-compiled `dist/` output via workspace dependency linking.
+## TypeScript Setup
+The utils package exports TypeScript source directly (`src/index.ts`) via workspace dependency linking (`@repo/utils`). The app uses `tsx` to execute TypeScript directly in development mode. For production, the app can be compiled to JavaScript using `tsc`.
 
 ## Scripts
-- `pnpm dev` - Start both TypeScript compiler (watch) and app (dev) concurrently with full hot reload
-- `pnpm start` - Build all packages, then start app in production
-- `pnpm build` - Build all packages recursively
+- `pnpm dev` - Start app in development mode using tsx (executes TypeScript directly with hot reload)
+- `pnpm start` - Build all packages, then start app in production mode
+- `pnpm build` - Build all packages recursively (compiles TypeScript to JavaScript)
 
-**Execution order**: `start` and `build` first compile TypeScript packages, then run the app.
+**Development mode**: Uses `tsx watch` to execute TypeScript directly without compilation, with automatic restart on file changes.
 
-**Hot reload**: Both utils TypeScript compilation and app restart automatically on file changes during development.
+**Production mode**: Compiles TypeScript to JavaScript in `dist/` directories before running.
 
 Run `pnpm install` from root to install dependencies.
