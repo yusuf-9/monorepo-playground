@@ -21,10 +21,18 @@ function App() {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-900 text-white">
       <div className="flex gap-8 mb-8">
-        <a href="https://vite.dev" target="_blank" className="opacity-80 hover:opacity-100 transition-opacity">
+        <a
+          href="https://vite.dev"
+          target="_blank"
+          className="opacity-80 hover:opacity-100 transition-opacity"
+        >
           <img src={viteLogo} className="h-24 w-24" alt="Vite logo" />
         </a>
-        <a href="https://react.dev" target="_blank" className="opacity-80 hover:opacity-100 transition-opacity">
+        <a
+          href="https://react.dev"
+          target="_blank"
+          className="opacity-80 hover:opacity-100 transition-opacity"
+        >
           <img src={reactLogo} className="h-24 w-24" alt="React logo" />
         </a>
       </div>
@@ -47,18 +55,15 @@ function App() {
           </Button>
         </div>
 
-        {result && (
-          <p className="mt-5 text-lg font-bold text-center">{result}</p>
-        )}
+        {result && <p className="mt-5 text-lg font-bold text-center">{result}</p>}
 
         <p className="mt-8 text-sm text-gray-400 text-center">
-          Edit <code className="bg-gray-700 px-2 py-1 rounded text-indigo-400">src/App.tsx</code> and save to test HMR
+          Edit <code className="bg-gray-700 px-2 py-1 rounded text-indigo-400">src/App.tsx</code>{' '}
+          and save to test HMR
         </p>
       </div>
 
-      <p className="mt-8 text-gray-500 text-sm">
-        Click on the Vite and React logos to learn more
-      </p>
+      <p className="mt-8 text-gray-500 text-sm">Click on the Vite and React logos to learn more</p>
     </div>
   );
 }

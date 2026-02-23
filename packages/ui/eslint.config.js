@@ -1,5 +1,5 @@
-import { defineConfig } from 'eslint/config'
-import baseConfig from '../config/src/eslint.config.js'
+import { defineConfig } from 'eslint/config';
+import baseConfig from '../../eslint.config.js';
 
 export default defineConfig([
   ...baseConfig,
@@ -7,4 +7,4 @@ export default defineConfig([
     // Package-specific overrides
     rules: {},
   },
-])
+]);

@@ -33,9 +33,7 @@ export const Button: React.FC<ButtonProps> = ({
   }[variant];
 
   // Disabled classes
-  const disabledClasses = disabled
-    ? 'opacity-60 cursor-not-allowed'
-    : 'cursor-pointer';
+  const disabledClasses = disabled ? 'opacity-60 cursor-not-allowed' : 'cursor-pointer';
 
   // Combine all classes
   const className = `${baseClasses} ${sizeClasses} ${variantClasses} ${disabledClasses}`;

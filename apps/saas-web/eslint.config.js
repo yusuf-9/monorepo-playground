@@ -1,5 +1,5 @@
-import { defineConfig, globalIgnores } from 'eslint/config'
-import baseConfig from '../../packages/config/src/eslint.config.js'
+import { defineConfig, globalIgnores } from 'eslint/config';
+import baseConfig from '../../eslint.config.js';
 
 export default defineConfig([
   globalIgnores(['dist']),
@@ -10,4 +10,4 @@ export default defineConfig([
       // Add app-specific rules here
     },
   },
-])
+]);

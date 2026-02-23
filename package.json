@@ -5,11 +5,21 @@
     "dev": "pnpm --filter saas-web dev",
     "build": "pnpm --filter saas-web build",
     "preview": "pnpm --filter saas-web preview",
-    "lint": "pnpm --filter saas-web lint",
-    "format": "pnpm --filter saas-web format",
-    "format:check": "pnpm --filter saas-web format:check"
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier . --write",
+    "format:check": "prettier . --check",
+    "typecheck": "tsc --noEmit"
   },
   "devDependencies": {
-    "concurrently": "^9.2.1"
+    "@eslint/js": "^9.39.1",
+    "concurrently": "^9.2.1",
+    "eslint": "^9.39.1",
+    "eslint-plugin-react-hooks": "^7.0.1",
+    "eslint-plugin-react-refresh": "^0.4.24",
+    "globals": "^16.5.0",
+    "prettier": "^3.4.2",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.48.0"
   }
 }

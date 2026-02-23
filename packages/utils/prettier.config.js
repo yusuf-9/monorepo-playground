@@ -1,6 +1,6 @@
-import baseConfig from '../config/src/prettier.config.js'
+import baseConfig from '../../prettier.config.js';
 
 export default {
   ...baseConfig,
   // Package-specific overrides
-}
+};
