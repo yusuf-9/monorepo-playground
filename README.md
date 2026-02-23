@@ -4,6 +4,7 @@ Frontend monorepo using pnpm workspaces with Vite + React + TypeScript.
 
 ## Structure
 - `apps/saas-web` - Main frontend application (Vite + React + TypeScript)
+- `packages/config` - Shared configuration files (@repo/config)
 
 ## Tech Stack
 - **React** v19.2 - UI library
@@ -11,6 +12,17 @@ Frontend monorepo using pnpm workspaces with Vite + React + TypeScript.
 - **Vite** v7.3 - Build tool and dev server
 - **pnpm** workspaces - Monorepo management
 - **ESLint** - Code linting
+- **Prettier** - Code formatting
+
+## Shared Configuration
+
+The `@repo/config` package contains shared configuration files that are extended by applications:
+
+- **TypeScript Config** (`@repo/config/tsconfig`) - Base TypeScript settings
+- **ESLint Config** (`@repo/config/eslint`) - Base linting rules
+- **Prettier Config** (`@repo/config/prettier`) - Code formatting rules
+
+Applications extend these base configurations and add their own specific overrides.
 
 ## Getting Started
 
@@ -43,11 +55,24 @@ pnpm lint
 ```
 Run ESLint to check code quality.
 
+### Format
+```bash
+pnpm format
+```
+Format code with Prettier.
+
+```bash
+pnpm format:check
+```
+Check if code is formatted correctly without making changes.
+
 ## Scripts
 - `pnpm dev` - Start development server with HMR
 - `pnpm build` - Build for production
 - `pnpm preview` - Preview production build
 - `pnpm lint` - Run ESLint
+- `pnpm format` - Format code with Prettier
+- `pnpm format:check` - Check code formatting
 
 ## Project Setup
 
