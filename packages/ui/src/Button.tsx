@@ -15,39 +15,33 @@ export const Button: React.FC<ButtonProps> = ({
   size = 'medium',
   disabled = false,
 }) => {
-  const baseStyles: React.CSSProperties = {
-    padding:
-      size === 'small' ? '6px 12px' : size === 'large' ? '12px 24px' : '8px 16px',
-    fontSize: size === 'small' ? '14px' : size === 'large' ? '18px' : '16px',
-    borderRadius: '4px',
-    border: 'none',
-    cursor: disabled ? 'not-allowed' : 'pointer',
-    opacity: disabled ? 0.6 : 1,
-    fontWeight: 500,
-    transition: 'all 0.2s ease',
-  };
+  // Base classes that apply to all buttons
+  const baseClasses = 'rounded border-none font-medium transition-all duration-200 ease-in-out';
 
-  const variantStyles: React.CSSProperties = {
-    primary: {
-      backgroundColor: '#646cff',
-      color: 'white',
-    },
-    danger: {
-      backgroundColor: '#f0f0f0',
-      color: '#333',
-    },
-    secondary: {
-      backgroundColor: '#ff4444',
-      color: 'white',
-    },
+  // Size classes - full strings, no dynamic construction
+  const sizeClasses = {
+    small: 'px-3 py-1.5 text-sm',
+    medium: 'px-4 py-2 text-base',
+    large: 'px-6 py-3 text-lg',
+  }[size];
+
+  // Variant classes - full strings, no dynamic construction
+  const variantClasses = {
+    primary: 'bg-indigo-600 text-white hover:bg-indigo-700',
+    secondary: 'bg-gray-200 text-gray-900 hover:bg-gray-300',
+    danger: 'bg-red-600 text-white hover:bg-red-700',
   }[variant];
 
+  // Disabled classes
+  const disabledClasses = disabled
+    ? 'opacity-60 cursor-not-allowed'
+    : 'cursor-pointer';
+
+  // Combine all classes
+  const className = `${baseClasses} ${sizeClasses} ${variantClasses} ${disabledClasses}`;
+
   return (
-    <button
-      style={{ ...baseStyles, ...variantStyles }}
-      onClick={onClick}
-      disabled={disabled}
-    >
+    <button className={className} onClick={onClick} disabled={disabled}>
       {children}
     </button>
   );
