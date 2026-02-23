@@ -1,49 +1,60 @@
 # Monorepo Playground
 
-TypeScript monorepo using pnpm workspaces.
+Frontend monorepo using pnpm workspaces with Vite + React + TypeScript.
 
 ## Structure
-- `apps/app` - Main application (TypeScript)
-- `packages/utils` - Shared utilities package (@repo/utils) (TypeScript, source-exported)
-- `packages/services` - Services package (@repo/services) (TypeScript, self-compiling)
+- `apps/saas-web` - Main frontend application (Vite + React + TypeScript)
 
-## TypeScript Package Patterns
+## Tech Stack
+- **React** v19.2 - UI library
+- **TypeScript** v5.9 - Type safety
+- **Vite** v7.3 - Build tool and dev server
+- **pnpm** workspaces - Monorepo management
+- **ESLint** - Code linting
 
-This monorepo demonstrates **two different TypeScript package patterns**:
+## Getting Started
 
-### 1. Source-Exported Package (utils)
-- **Exports**: TypeScript source directly (`./src/index.ts`)
-- **Consumed by**: App compiles it using `tsx` (dev) or `tsc` (production)
-- **No build scripts**: Package doesn't compile itself
-- **Use case**: Simple shared utilities that don't need pre-compilation
+### Install Dependencies
+```bash
+pnpm install
+```
 
-### 2. Self-Compiling Package (services)
-- **Exports**: Compiled JavaScript (`./dist/index.js`)
-- **Build scripts**: `dev` (tsc --watch) and `build` (tsc)
-- **Consumed by**: App imports pre-compiled JavaScript
-- **Use case**: Complex packages with build steps, or when you want package isolation
+### Development
+```bash
+pnpm dev
+```
+Starts the Vite development server with hot module replacement (HMR).
+
+### Build
+```bash
+pnpm build
+```
+Builds the application for production. Output is in `apps/saas-web/dist/`.
+
+### Preview Production Build
+```bash
+pnpm preview
+```
+Preview the production build locally.
+
+### Lint
+```bash
+pnpm lint
+```
+Run ESLint to check code quality.
 
 ## Scripts
-- `pnpm dev` - Start development mode with hot reload
-- `pnpm start` - Build all packages, then start app in production mode
-- `pnpm build` - Build all packages recursively (compiles TypeScript to JavaScript)
+- `pnpm dev` - Start development server with HMR
+- `pnpm build` - Build for production
+- `pnpm preview` - Preview production build
+- `pnpm lint` - Run ESLint
 
-### Development Mode (`pnpm dev`)
-1. **Initial build**: `pnpm build` compiles all packages
-2. **Concurrent watchers** (using concurrently):
-   - **services** (magenta): `tsc --watch` monitors `packages/services/src/` → compiles to `packages/services/dist/`
-   - **app** (green): `tsx watch src` executes TypeScript directly and auto-restarts on changes
+## Project Setup
 
-**How it works**:
-- The **services** package compiles itself to JavaScript in watch mode
-- The **app** uses `tsx` to execute TypeScript directly (including the utils package source)
-- When services TypeScript changes, tsc recompiles → app detects dist change → app restarts
-- When utils TypeScript changes, app detects source change → app restarts directly
+This monorepo uses pnpm workspaces to manage the frontend application. The structure is designed to easily add more applications or shared packages in the future.
 
-### Production Mode (`pnpm start`)
-1. **Build all packages**: `pnpm -r build` compiles all TypeScript recursively
-   - services: TypeScript → JavaScript in `dist/`
-   - app: TypeScript → JavaScript in `dist/`
-2. **Start app**: Runs compiled JavaScript from `dist/index.js`
+### Adding New Apps
+Create new apps in the `apps/` directory. They will automatically be included in the workspace.
 
-Run `pnpm install` from root to install dependencies.
+### Adding Shared Packages
+Create shared packages in the `packages/` directory for code reuse across multiple apps.
